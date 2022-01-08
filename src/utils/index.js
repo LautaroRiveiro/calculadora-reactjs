@@ -24,25 +24,21 @@ export const evaluate = (operando1, operando2, operador)=>{
     default:
       return undefined
   }
-  return res
+  return res.toString()
 }
 
-// export const quitarCerosDeIzquierda = (expresion)=>{
-//   if (Number(expresion) === 0) return ''
-//   let numero = String(expresion).replace(/^0+/g, '')
-//   numero = numero.startsWith('.') ? '0' + numero : numero
-//   return numero
-// }
+const INT_FORMATTER = new Intl.NumberFormat("es-AR", {
+  maximumFractionDigits: 0
+})
 
-// const INT_FORMATTER = new Intl.NumberFormat("en-us", {
-//   maximumFractionDigits: 0
-// })
+export const formatearNumero = (expresion)=>{
+  if (!expresion) return ''
+  const punto = expresion.includes('.') ? '.' : ''
+  let [entero, decimal] = expresion.split('.')
+  entero = INT_FORMATTER.format(entero)
+  return `${entero}${punto}${decimal || ''}`
+}
 
-// export const formatearNumero = (expresion)=>{
-//   const trim = Number(expresion).toString()
-//   let [entero, decimal] = trim.split('.')
-//   entero = INT_FORMATTER.format(entero)
-//   return decimal
-//   ? `${entero}.${decimal}`
-//   : entero
-// }
+export const eliminarCeros = (expresion)=>{
+  return Number(expresion).toString()
+}

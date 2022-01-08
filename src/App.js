@@ -1,6 +1,6 @@
 import { useState } from "react"
 import './App.css'
-import { evaluate, Operator } from "./utils"
+import { evaluate, Operator, formatearNumero, eliminarCeros } from "./utils"
 
 function App() {
 
@@ -42,7 +42,7 @@ function App() {
     }
 
     if (!operator) {
-      setPrevious(current)
+      setPrevious(eliminarCeros(current))
     } else {
       // Si están todos los datos cargados entonces resuelve
       const result = evaluate(Number(previous), Number(current), operator)
@@ -65,8 +65,8 @@ function App() {
   return (
     <div className="calculadora-grid">
       <div className='output'>
-        <div className='previous-operand'>{previous} {operator}</div>
-        <div className='current-operand'>{current}</div>
+        <div className='previous-operand'>{formatearNumero(previous)} {operator}</div>
+        <div className='current-operand'>{formatearNumero(current)}</div>
       </div>
       <button className='span-two' onClick={handleClear}>AC</button>
       <button onClick={handleDelete}>DEL</button>
