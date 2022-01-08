@@ -63,30 +63,36 @@ function App() {
   }
 
   return (
-    <div className="calculadora-grid">
-      <div className='output'>
-        <div className='previous-operand'>{formatearNumero(previous)} {operator}</div>
-        <div className='current-operand'>{formatearNumero(current)}</div>
+    <>
+      <div className="calculadora-grid">
+        <div className='output'>
+          <div className='previous-operand'>{formatearNumero(previous)} {operator}</div>
+          <div className='current-operand'>{formatearNumero(current)}</div>
+        </div>
+        <button className='span-two' onClick={handleClear}>AC</button>
+        <button onClick={handleDelete}>DEL</button>
+        <button onClick={handleOperator}>÷</button>
+        <button onClick={handleNumber}>7</button>
+        <button onClick={handleNumber}>8</button>
+        <button onClick={handleNumber}>9</button>
+        <button onClick={handleOperator}>*</button>
+        <button onClick={handleNumber}>4</button>
+        <button onClick={handleNumber}>5</button>
+        <button onClick={handleNumber}>6</button>
+        <button onClick={handleOperator}>+</button>
+        <button onClick={handleNumber}>1</button>
+        <button onClick={handleNumber}>2</button>
+        <button onClick={handleNumber}>3</button>
+        <button onClick={handleOperator}>-</button>
+        <button onClick={handleDot}>,</button>
+        <button onClick={handleNumber}>0</button>
+        <button className='span-two' onClick={handleEvaluate}>=</button>
       </div>
-      <button className='span-two' onClick={handleClear}>AC</button>
-      <button onClick={handleDelete}>DEL</button>
-      <button onClick={handleOperator}>÷</button>
-      <button onClick={handleNumber}>7</button>
-      <button onClick={handleNumber}>8</button>
-      <button onClick={handleNumber}>9</button>
-      <button onClick={handleOperator}>*</button>
-      <button onClick={handleNumber}>4</button>
-      <button onClick={handleNumber}>5</button>
-      <button onClick={handleNumber}>6</button>
-      <button onClick={handleOperator}>+</button>
-      <button onClick={handleNumber}>1</button>
-      <button onClick={handleNumber}>2</button>
-      <button onClick={handleNumber}>3</button>
-      <button onClick={handleOperator}>-</button>
-      <button onClick={handleDot}>.</button>
-      <button onClick={handleNumber}>0</button>
-      <button className='span-two' onClick={handleEvaluate}>=</button>
-    </div>
+      
+      <footer>
+        Calculadora basada en <a href="https://www.youtube.com/watch?v=DgRrrOt0Vr8">The Perfect Beginner React Project</a>
+      </footer>
+    </>
   )
 }
 

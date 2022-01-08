@@ -33,7 +33,7 @@ const INT_FORMATTER = new Intl.NumberFormat("es-AR", {
 
 export const formatearNumero = (expresion)=>{
   if (!expresion) return ''
-  const punto = expresion.includes('.') ? '.' : ''
+  const punto = expresion.includes('.') ? ',' : ''
   let [entero, decimal] = expresion.split('.')
   entero = INT_FORMATTER.format(entero)
   return `${entero}${punto}${decimal || ''}`
