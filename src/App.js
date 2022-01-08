@@ -1,6 +1,6 @@
 import { useState } from "react"
 import './App.css'
-import { evaluate, Operator, quitarCerosDeIzquierda } from "./utils"
+import { evaluate, Operator } from "./utils"
 
 function App() {
 
@@ -24,7 +24,8 @@ function App() {
       setCurrent(e.target.innerText)
       setOverwrite(false)
     } else {
-      setCurrent(quitarCerosDeIzquierda(current + e.target.innerText))
+      const nuevoNumero = current === '0' ? e.target.innerText : current + e.target.innerText
+      setCurrent(nuevoNumero)
     }
   }
 
